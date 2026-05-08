@@ -34,6 +34,12 @@ object nave {
 
     // wtf is this syntax
     method potencialVital() = self.vitalidades().fold(1, {prod, p => prod * p})
+    /*
+        this is legal too:
+            var potencia = 1
+            pasajeros.forEach({p => potencia *= p.vitalidad()})
+            return potencia
+    */
 
     method chocar() {
         pasajeros.forEach({p => p.saltar()})
