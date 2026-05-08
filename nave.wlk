@@ -20,9 +20,7 @@ object nave {
 
     method pasajerosPuedenEnfrentarAgente() = pasajeros.all({p => p.vitalidad() > 2})
 
-    method sumaVitalidades() = pasajeros.sum({p => p.vitalidad()})
-
-    method vitalidadPromedio() = self.sumaVitalidades() / self.cantidadPasajeros()
+    method vitalidadPromedio() = pasajeros.average({p => p.vitalidad()})
 
     method cantidadDeVitalidadesPares() = pasajeros.count({p => p.vitalidad().even()})
 
