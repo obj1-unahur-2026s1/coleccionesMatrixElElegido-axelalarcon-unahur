@@ -13,6 +13,29 @@ object nave {
     method estaElElegido() = pasajeros.any({p => p.esElElegido()})
 
     method losNoElegidos() = pasajeros.filter({p => !p.esElElegido()})
+    
+    method pasajerosValiosos() = pasajeros.filter({p => p.vitalidad() > 5})
+
+    method hayPasajeroAlHorno() = pasajeros.any({p => p.vitalidad() == 0})
+
+    method pasajerosPuedenEnfrentarAgente() = pasajeros.all({p => p.vitalidad() > 2})
+
+    method sumaVitalidades() = pasajeros.sum({p => p.vitalidad()})
+
+    method vitalidadPromedio() = self.sumaVitalidades() / self.cantidadPasajeros()
+
+    method cantidadDeVitalidadesPares() = pasajeros.count({p => p.vitalidad().even()})
+
+    method vitalidades() = pasajeros.map({p => p.vitalidad()})
+
+    method ordenarAscendente() = pasajeros.sort({p1, p2 => p1.vitalidad() > p2.vitalidad()})
+    
+    method elegirConserje() = pasajeros.anyOne()
+
+    method cantidadElejidos() = pasajeros.count({p => p.esElElegido()})
+
+    // wtf is this syntax
+    method potencialVital() = self.vitalidades().fold(1, {prod, p => prod * p})
 
     method chocar() {
         pasajeros.forEach({p => p.saltar()})
@@ -31,6 +54,17 @@ object nave {
             ALTERNATE VERSION:
                 pasajeros.forEach({p => if (!p.esElElegido()) p.saltar()})
         */
+    }
+
+    method simularCombate() {
+        pasajeros.forEach({p => self.saltarPasajero3Veces(p)})
+    }
+
+    // are you for real man
+    method saltarPasajero3Veces(pasajero) {
+        pasajero.saltar()
+        pasajero.saltar()
+        pasajero.saltar()
     }
 
     method agregarPasajero(pasajero) {
