@@ -26,7 +26,7 @@ object nave {
 
     method vitalidades() = pasajeros.map({p => p.vitalidad()})
 
-    method ordenarAscendente() = pasajeros.sort({p1, p2 => p1.vitalidad() > p2.vitalidad()})
+    method ordenarAscendente() = pasajeros.sortBy({p1, p2 => p1.vitalidad() > p2.vitalidad()})
     
     method elegirConserje() = pasajeros.anyOne()
 
