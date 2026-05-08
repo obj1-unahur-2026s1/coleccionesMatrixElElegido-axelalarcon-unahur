@@ -27,7 +27,6 @@ object trinity {
     method esElElegido() = false
 
     method saltar() {
-
+        
     }
 }
-
